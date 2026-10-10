@@ -1,0 +1,50 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "YouTube Transcript input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "videos": {
+            "title": "YouTube videos",
+            "type": "array",
+            "description": "Video URLs or 11-character video IDs. Works with watch, youtu.be, Shorts, embed and live links. Duplicates are fetched once.",
+            "editor": "stringList",
+            "prefill": [
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "https://youtu.be/aircAruvnKk"
+            ]
+        },
+        "languages": {
+            "title": "Preferred languages",
+            "type": "array",
+            "description": "Language codes in order of preference (for example en, pt, es). The first one the video has wins; captions written by a person are preferred over auto-generated ones.",
+            "editor": "stringList",
+            "default": [
+                "en"
+            ]
+        },
+        "fallbackToAnyLanguage": {
+            "title": "Fall back to any language",
+            "type": "boolean",
+            "description": "If the video has none of the preferred languages, return the transcript it does have instead of an error.",
+            "default": true
+        },
+        "includeSegments": {
+            "title": "Include timestamped segments",
+            "type": "boolean",
+            "description": "Also return the transcript split into segments with start time and duration in seconds. The full text is always returned.",
+            "default": true
+        },
+        "maxConcurrency": {
+            "title": "Max concurrency",
+            "type": "integer",
+            "description": "How many videos are fetched at the same time.",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 5
+        }
+    },
+    "required": [
+        "videos"
+    ]
+}

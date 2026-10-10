@@ -1,0 +1,184 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "videoId": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "11-character YouTube video ID. Null when the input was not a YouTube video."
+            },
+            "videoUrl": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Watch URL of the video."
+            },
+            "languageCode": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Language code of the returned transcript."
+            },
+            "language": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Language name as YouTube shows it."
+            },
+            "isGenerated": {
+                "type": [
+                    "boolean",
+                    "null"
+                ],
+                "description": "True for auto-generated captions, false for captions written by a person."
+            },
+            "text": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Full transcript as plain text. Null when the transcript could not be fetched."
+            },
+            "wordCount": {
+                "type": [
+                    "integer",
+                    "null"
+                ],
+                "description": "Number of words in the text."
+            },
+            "segmentCount": {
+                "type": [
+                    "integer",
+                    "null"
+                ],
+                "description": "Number of caption segments."
+            },
+            "durationSecs": {
+                "type": [
+                    "number",
+                    "null"
+                ],
+                "description": "End time of the last segment, in seconds."
+            },
+            "segments": {
+                "type": [
+                    "array",
+                    "null"
+                ],
+                "description": "Timestamped segments (start and duration in seconds). Present when Include timestamped segments is on.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "start": {
+                            "type": "number"
+                        },
+                        "duration": {
+                            "type": "number"
+                        },
+                        "text": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "availableLanguages": {
+                "type": [
+                    "array",
+                    "null"
+                ],
+                "description": "Every caption track the video has.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "languageCode": {
+                            "type": "string"
+                        },
+                        "language": {
+                            "type": "string"
+                        },
+                        "isGenerated": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            },
+            "fetchedAt": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "When the transcript was fetched (ISO 8601, UTC)."
+            },
+            "error": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Why the transcript could not be fetched. Null on success."
+            },
+            "errorType": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "Short error code, for example TranscriptsDisabled, NoTranscriptFound, VideoUnavailable, IpBlocked."
+            }
+        },
+        "required": [
+            "videoId",
+            "text",
+            "error"
+        ]
+    },
+    "views": {
+        "overview": {
+            "title": "Transcripts",
+            "transformation": {
+                "fields": [
+                    "videoUrl",
+                    "languageCode",
+                    "isGenerated",
+                    "wordCount",
+                    "text",
+                    "error"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "videoUrl": {
+                        "label": "Video",
+                        "format": "link"
+                    },
+                    "languageCode": {
+                        "label": "Language",
+                        "format": "text"
+                    },
+                    "isGenerated": {
+                        "label": "Auto-generated",
+                        "format": "boolean"
+                    },
+                    "wordCount": {
+                        "label": "Words",
+                        "format": "number"
+                    },
+                    "text": {
+                        "label": "Transcript",
+                        "format": "text"
+                    },
+                    "error": {
+                        "label": "Error",
+                        "format": "text"
+                    }
+                }
+            }
+        }
+    }
+}

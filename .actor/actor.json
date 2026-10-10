@@ -1,0 +1,22 @@
+{
+    "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+    "actorSpecification": 1,
+    "name": "youtube-transcript-scraper",
+    "title": "YouTube Transcript Scraper",
+    "description": "Get the transcript (captions) of any YouTube video as plain text and timestamped segments, in the language you choose. Bulk URLs or IDs, Shorts included. Pay only for transcripts delivered.",
+    "version": "0.0",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "python-empty",
+        "generatedBy": "Claude Code with Claude Opus 5.5"
+    },
+    "inputSchema": "./input_schema.json",
+    "outputSchema": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile",
+    "defaultMemoryMbytes": 256,
+    "minMemoryMbytes": 128,
+    "maxMemoryMbytes": 1024
+}
