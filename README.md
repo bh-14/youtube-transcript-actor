@@ -1,6 +1,6 @@
 ## What does YouTube Transcript Scraper do?
 
-YouTube Transcript Scraper gets the **transcript (captions) of YouTube videos** and returns it as clean plain text and as timestamped segments. Paste video URLs or IDs, pick the languages you want, and get one row per video, ready for AI summaries, RAG pipelines, SEO content, subtitles, research or search.
+YouTube Transcript Scraper gets the **transcript (captions and subtitles) of YouTube videos** and returns it as clean plain text and as timestamped segments. Paste video URLs or IDs, pick the languages you want, and get one row per video, ready for AI summaries, RAG pipelines, SEO content, subtitles, research or search.
 
 - **Bulk:** hundreds of videos in one run, watch links, `youtu.be` links, Shorts, embeds, live replays or bare video IDs.
 - **Language control:** choose languages in order of preference; captions written by a person win over auto-generated ones. If the video has none of them, you get the language it does have, and every available caption track is listed.
